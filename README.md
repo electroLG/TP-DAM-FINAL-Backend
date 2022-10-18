@@ -17,5 +17,5 @@ El BackEnd esta desarrollado en Ionic Framework, con el fin de brindar un abuena
 La comunicación entre el Backend y Frontend se realiza por medio del protocolo HTTP utilzando los métodos GET y PUT.
 
 
-   ![](docs/DAM-Estructura.png)
+   ![](docs/DAM-estructura.png)
 
