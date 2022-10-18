@@ -86,8 +86,17 @@ CREATE TABLE `Log_Riegos` (
   `electrovalvulaId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
+--
+-- Volcado de datos para la tabla `Log_Riegos`
+--
 
+INSERT INTO `Log_Riegos` (`logRiegoId`, `apertura`, `fecha`, `electrovalvulaId`) VALUES
+(1, 0, '2020-11-26 21:19:41', 1),
+(2, 0, '2020-11-26 21:19:41', 2),
+(3, 0, '2020-11-26 21:19:41', 3),
+(4, 0, '2020-11-26 21:19:41', 4),
+(5, 0, '2020-11-26 21:19:41', 5),
+(6, 0, '2020-11-26 21:19:41', 6);
 --
 -- Estructura de tabla para la tabla `Mediciones`
 --
