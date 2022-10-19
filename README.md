@@ -31,7 +31,7 @@ git clone https://github.com/USER/TP-DAM-FINAL-Backend.git
 
 ### Poner en marcha el Backend
 
-Para ponre en marcha el Backend debemos ejecutar  el comando `docker-compose up` desde la raíz del proyecto. Este comando va a descargar las imágenes de Docker de node, de la base datos y del admin de la DB, y luego ponerlas en funcionamiento. 
+Para poner en marcha el Backend debemos ejecutar  el comando `docker-compose up` desde la raíz del proyecto. Este comando va a descargar las imágenes de Docker de node, de la base datos y del admin de la DB, y luego ponerlas en funcionamiento. 
 
 Para acceder al admin de la DB accedé a [localhost:8001/](http://localhost:8001/). 
 
