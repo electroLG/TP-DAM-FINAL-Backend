@@ -1,5 +1,5 @@
 var express = require('express');                //importa package de express
-var routerLogRiego = express.Router();           //Defino el router "routerDispositivo"
+var routerLogRiego = express.Router();           //Defino el router "routerLogRiego"
 var pool = require('../../mysql');               //importa package de mysql porque voy a usar funciones de ese package
 
 //Consulta de log  de riegos por electroválvula enviada como parámetro
@@ -15,7 +15,7 @@ routerLogRiego.get('/:id_ev/', function(req, res) {
 
 });
 
-//Espera recinir por parámetro el id de la electroválvula para devolver su estado.
+//Espera recibir por parámetro el id de la electroválvula para devolver su estado.
 routerLogRiego.get('/:id_ev/estado', function(req, res) {
     pool.query('SELECT * FROM Log_Riegos WHERE electrovalvulaId=? ORDER BY fecha desc', [req.params.id_ev],function(err, result, fields) {
        if (err) {
