@@ -7,16 +7,7 @@ var configMysql = {
     password: 'userpass',
     database: 'DAM'
 }
-//  Límite de conexiones
-//  SI no se usa la conexion la libera
-//  SI no hay conexiones utilizadsa se crea una nueva
-//  Si llegamos al límite de conexiones, se espera a que la conexión se libere.
-//  Manejo eficiente de multiples conexiones a la base de datos.
 
-// NO un Singleton, porque es una unica instancia, y la instancia queda en uso el tiempo que un usuario está conectado,
-// por ende el tiempo de liberación de la conexión se eleva y no es concurrente
-
-// Solamente utiliza SQL cuando quiero manejar plata y stock, JAJAJAJA.
 
 var pool = mysql.createPool(configMysql);
 pool.getConnection( (err, connection) => {
