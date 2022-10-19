@@ -95,9 +95,36 @@ var configMysql = {
     database: 'DAM'
 }
 ```
+
+En el caso de presentarse errores en la conexión se informorá por conosola
+
+```js
+var pool = mysql.createPool(configMysql);
+pool.getConnection( (err, connection) => {
+    if (err) {
+        switch (err.code) {
+            case 'PROTOCOL_CONNECTION_LOST':
+                console.error('La conexion a la DB se cerró.');
+                break;
+            case 'ER_CON_COUNT_ERROR':
+                console.error('La base de datos tiene muchas conexiones');
+                break;
+            case 'ECONNREFUSED':
+                console.error('La conexion fue rechazada');
+        }
+        if (connection) {
+            connection.release();
+
+        }
+        return;
+    }
+});
+```
 Los endpoints de la api se encuentran ruteados para mantener el código ordenado como se observa en las carpetas de la organización del proyecto.
 
-#### Endpoints de dispositivo.
+-------------
+### Endpoints de dispositivo.
+-------------
 
 A continuación se detallan los endpoints y sus respuestas
 
@@ -115,8 +142,9 @@ Consulta de dispositivo http://localhost:8000/api/dispositivo/1
 ```json
 [{"dispositivoId":1,"nombre":"Sensor 1","ubicacion":"Patio","electrovalvulaId":1},
 ```
-
-#### Endpoints de medicion.
+-------------
+### Endpoints de medicion.
+-------------
 
 A continuación se detallan los endpoints y sus respuestas
 
@@ -149,6 +177,48 @@ respuesta
     "fieldCount": 0,
     "affectedRows": 1,
     "insertId": 27,
+    "serverStatus": 2,
+    "warningCount": 0,
+    "message": "",
+    "protocol41": true,
+    "changedRows": 0
+}
+```
+-------------
+### Endpoints de Logs de Riego.
+-------------
+
+A continuación se detallan los endpoints y sus respuestas
+
+Listado de Logs de Riego por electroválvula http://localhost:8000/api/logRiego/1
+
+```json
+[{"logRiegoId":10,"apertura":0,"fecha":"2022-10-18T19:03:03.000Z","electrovalvulaId":1},
+{"logRiegoId":9,"apertura":1,"fecha":"2022-10-18T19:03:02.000Z","electrovalvulaId":1},
+{"logRiegoId":8,"apertura":0,"fecha":"2022-10-18T19:03:01.000Z","electrovalvulaId":1},
+{"logRiegoId":7,"apertura":1,"fecha":"2022-10-18T19:03:00.000Z","electrovalvulaId":1},
+{"logRiegoId":1,"apertura":0,"fecha":"2020-11-26T21:19:41.000Z","electrovalvulaId":1}]
+```
+Ultimo estado de electroválvula por id http://localhost:8000/api/logRiego/1/estado
+
+```json
+[{"logRiegoId":10,"apertura":0,"fecha":"2022-10-18T19:03:03.000Z","electrovalvulaId":1}]
+```
+
+Agregar log de riego por id de electroválvula http://localhost:8000/api/logRiego/add
+
+Metodo POST parámetros enviado en el body
+
+```json
+[{"apertura":"0","fecha":"2022-10-10 13:22:32","electrovalvulaId":"3"}]
+```
+
+respuesta
+```json
+{
+    "fieldCount": 0,
+    "affectedRows": 1,
+    "insertId": 22,
     "serverStatus": 2,
     "warningCount": 0,
     "message": "",
