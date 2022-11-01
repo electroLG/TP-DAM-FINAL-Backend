@@ -8,6 +8,10 @@ var routerMed = require('./routes/medicion');               //ruteo medición
 
 var routerLogR = require('./routes/logRiego');               //ruteo log de riegos
 
+var routerTepelco = require('./routes/tepelco');   
+
+var routerGrafico = require('./routes/graf');              //ruteo log de riegos
+
 var cors = require('cors');                                 //Agrego cors para permitir acceso desde otros dispositivos
 
 
@@ -29,6 +33,10 @@ app.use('/api/dispositivo', routerDisp);
 app.use('/api/medicion', routerMed);
 
 app.use('/api/logRiego', routerLogR);
+
+app.use('/tepelco', routerTepelco);
+
+app.use('/graf', routerGrafico);
 
 app.listen(PORT, function(req, res) {
     console.log("API Funcionando ");

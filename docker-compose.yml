@@ -7,11 +7,12 @@ services:
         hostname:                mysql-server
         environment:
             MYSQL_ROOT_PASSWORD: userpass
+        command: ['mysqld','--default-time-zone=-03:00']
         volumes:
             -                    ./db/dumps:/docker-entrypoint-initdb.d
             -                    ./db/data:/var/lib/mysql
         networks:
-            -                    TPF-DAM-NET
+            -                    ROE-IOT
 
     mysql-admin:
         image:                   phpmyadmin/phpmyadmin
@@ -19,8 +20,9 @@ services:
             PMA_HOST:            mysql-server
             PMA_PORT:            3306
             MYSQL_ROOT_PASSWORD: userpass
+
         networks:
-            -                    TPF-DAM-NET
+            -                    ROE-IOT
         depends_on:
             -                    mysql-server
         ports:
@@ -30,7 +32,7 @@ services:
         volumes:
             -                    ./api:/home/node/app/src
         networks:
-            -                    TPF-DAM-NET
+            -                    ROE-IOT
         depends_on:
             -                    mysql-server
         ports:
@@ -38,5 +40,5 @@ services:
         command:                 nodemon /home/node/app/src/index.js
 
 networks:
-    TPF-DAM-NET:
+       ROE-IOT:
         driver:                  bridge
