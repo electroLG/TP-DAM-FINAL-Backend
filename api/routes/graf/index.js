@@ -27,7 +27,7 @@ routerGrafico.get('/semana', function(req, res) {
 
 //Espera recibir por parámetro un id de dispositivo y devuelve todas sus mediciones
 routerGrafico.get('/todos', function(req, res) {
-    pool.query("SELECT `fecha`, `dp_cartucho`, `dp_filtro`FROM `tepelco` ORDER BY `fecha`ASC ", function(err, result, fields) {
+    pool.query("SELECT `fecha`, `dp_cartucho`, `dp_filtro`FROM `tepelco` ORDER BY `fecha` ASC ", function(err, result, fields) {
         if (err) {
             res.send(err).status(400);
             return;
@@ -36,4 +36,16 @@ routerGrafico.get('/todos', function(req, res) {
     });
 });
 
+routerGrafico.get('/last', function(req, res) {
+    pool.query("SELECT * FROM `tepelco` ORDER BY `fecha` DESC LIMIT 1", function(err, result, fields) {
+        if (err) {
+            res.send(err).status(400);
+            return;
+        }
+        res.send(result[0]); //Se envía todo el vector.
+    });
+});
+
 module.exports = routerGrafico;         //comparto el routerDispositivo
+
+

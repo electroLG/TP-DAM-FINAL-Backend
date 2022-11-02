@@ -6,7 +6,7 @@ var pool = require('../../mysql');               //importa package de mysql porq
 //Devuelve el listado de dispositivos
 
 routerDispositivo.get('/', function(req, res) {
-    pool.query('SELECT * FROM Dispositivos', function(err, result, fields) {
+    pool.query('SELECT * FROM Devices', function(err, result, fields) {
         if (err) {
             res.send(err).status(400);
             return;
@@ -18,7 +18,7 @@ routerDispositivo.get('/', function(req, res) {
 
 //Devuelve informacion del dispositivo que fué consultado por parámetro
 routerDispositivo.get('/:id/', function(req, res) {
-    pool.query('SELECT * FROM Dispositivos WHERE dispositivoId=?', [req.params.id], function(err, result, fields) {
+    pool.query('SELECT * FROM Devices WHERE dispositivoId=?', [req.params.id], function(err, result, fields) {
         if (err) {
             res.send(err).status(400);
             return;
