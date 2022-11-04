@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var PORT = 3000;
-
+var i=0;
 var routerDisp = require('./routes/dispositivo');           //ruteo dispositivo
 
 var routerMed = require('./routes/medicion');               //ruteo medición
@@ -18,7 +18,8 @@ var cors = require('cors');                                 //Agrego cors para p
 var corsOptions={origin:'*', optionsSucessStatus:200};
 
 var logger = function(req,res,next) {
-  console.log("Se realizó consulta a la api");
+  console.log("Se realizó consulta a la api, es la nro = " + i);
+  i++;
   next();
 }
 

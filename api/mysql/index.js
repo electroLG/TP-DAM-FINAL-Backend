@@ -1,6 +1,6 @@
 var mysql = require('mysql'); //importa el package para manejar SQL
 var configMysql = {
-    connectionLimit: 10,      // Límite de conexiones a aceptar
+    connectionLimit: 20,      // Límite de conexiones a aceptar
     host: 'mysql-server',
     port:  '3306',
     user: 'root',
