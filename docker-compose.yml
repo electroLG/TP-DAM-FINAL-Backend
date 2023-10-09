@@ -7,7 +7,7 @@ services:
         hostname:                mysql-server
         environment:
             MYSQL_ROOT_PASSWORD: userpass
-        command: ['mysqld','--default-time-zone=-03:00']
+        command:                 ['mysqld','--max_allowed_packet=1000M -u root -p roe_iot < roe_iot.sql','--default-time-zone=-03:00']
         volumes:
             -                    ./db/dumps:/docker-entrypoint-initdb.d
             -                    ./db/data:/var/lib/mysql
