@@ -10,6 +10,8 @@ var routerLogR = require('./routes/logRiego');               //ruteo log de rieg
 
 var routerTepelco = require('./routes/tepelco');   
 
+var routerBitacora = require('./routes/bitacora');  
+
 var routerGrafico = require('./routes/graf');              //ruteo log de riegos
 
 var cors = require('cors');                                 //Agrego cors para permitir acceso desde otros dispositivos
@@ -42,6 +44,8 @@ app.use('/api/medicion', routerMed);
 app.use('/api/logRiego', routerLogR);
 
 app.use('/tepelco', routerTepelco);
+
+app.use('/bitacora', routerBitacora);
 
 app.use('/graf', routerGrafico);
 
