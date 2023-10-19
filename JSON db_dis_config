@@ -1,0 +1,12 @@
+[{"max": 100, "min": 0, "tipo": "AI", "nombre": "Nivel Ecualizador", "unidad": "%", "habilitado": true, "representacion": "num"},
+{"max": 100, "min": 0, "tipo": "AI", "nombre": "Nivel Mezclador", "unidad": "%", "habilitado": true, "representacion": "num"},
+{"max": 1, "min": 0, "tipo": "AI", "nombre": "Caudal ingreso ECU", "unidad": "estado", "habilitado": true, "representacion": "m3/h"},
+{"max": 20, "min": 0, "tipo": "AI", "nombre": "Oxigeno Disuelto 1", "unidad": "ppm", "habilitado": true, "representacion": "num"},
+{"max": 100, "min": 0, "tipo": "AI", "nombre": "Aireador 1", "unidad": "%", "habilitado": true, "representacion": "num"},
+{"max": 100, "min": 0, "tipo": "AI", "nombre": "Aireador 2", "unidad": "%", "habilitado": true, "representacion": "num"},
+{"max": 1, "min": 0, "tipo": "AI", "nombre": "Válvula", "unidad": "estado", "habilitado": true, "representacion": "num"},
+{"max": 20, "min": 0, "tipo": "AI", "nombre": "Oxigeno Disuelto 2", "unidad": "ppm", "habilitado": true, "representacion": "num"},
+{"max": 1800, "min": 0, "tipo": "AI", "nombre": "Aireador 3", "unidad": "rpm", "habilitado": true, "representacion": "num"}]
+
+
+
